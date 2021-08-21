@@ -83,7 +83,7 @@ class Autoencoder_Model:
                                       verbose=1)
         log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         tb_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
-        #es_callback = EarlyStopping(monitor='val_loss', min_delta=0.0001, patience=5)
+        es_callback = EarlyStopping(monitor='val_loss', min_delta=0.0001, patience=5)
         print("=========Begin=========")
         self._autoencoder_model.fit(X_train, X_train, epochs=self._train_epoch, verbose=1, batch_size=self._batch_size,
                                     validation_data=(X_valid, X_valid),
@@ -93,14 +93,14 @@ class Autoencoder_Model:
     def encoderPredict(self, X, y):
         predicts = []
         for sample in X:
-            predicted = self._encoder_model.predict(sample.reshape((1, sample.shape[0], sample.shape[1])), verbose=1)
+            predicted = self._encoder_model.predict(sample.reshape((1, sample.shape[0]), verbose=1))
             predicts.append(predicted)
         savez('./latent.npz', array(predicts, dtype=float), array(y, dtype=float))
 
     def knnClassify(self):
         data = load('./latent.npz')
-        X_onehot = squeeze(data['arr_0'], axis=1)
-        Y = squeeze(data['arr_1'], axis=1)
+        X_onehot = data['arr_0']
+        Y = data['arr_1']
         X_train, X_val, Y_train, Y_val = train_test_split(X_onehot, Y, test_size=0.1)
         _knn_model = KNeighborsClassifier(n_neighbors=3)
         _knn_model.fit(X_train, Y_train)

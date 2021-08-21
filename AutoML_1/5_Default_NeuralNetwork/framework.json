@@ -1,0 +1,142 @@
+{
+    "uid": "7d962cdc-2be0-45f3-8775-6cce32819a57",
+    "name": "5_Default_NeuralNetwork",
+    "preprocessing": [
+        {
+            "scale": [
+                {
+                    "scale": [
+                        1.0131944134528066,
+                        0.9725497224545419,
+                        1.0081689213812728,
+                        1.0258065270848233
+                    ],
+                    "mean": [
+                        -0.5811784158585789,
+                        0.821583046768916,
+                        0.9037968237470277,
+                        -0.5577264365999021
+                    ],
+                    "var": [
+                        1.026562919451977,
+                        0.9458529626464064,
+                        1.016404574039079,
+                        1.0522790310098264
+                    ],
+                    "n_samples_seen": 258,
+                    "n_features_in": 4,
+                    "columns": [
+                        "feature_107",
+                        "feature_141",
+                        "feature_492",
+                        "feature_521"
+                    ],
+                    "scale_method": "scale_normal"
+                }
+            ],
+            "ml_task": "binary_classification",
+            "params": {
+                "columns_preprocessing": {
+                    "feature_107": [
+                        "scale_normal"
+                    ],
+                    "feature_141": [
+                        "scale_normal"
+                    ],
+                    "feature_492": [
+                        "scale_normal"
+                    ],
+                    "feature_521": [
+                        "scale_normal"
+                    ]
+                },
+                "target_preprocessing": [
+                    "na_exclude"
+                ],
+                "ml_task": "binary_classification"
+            }
+        }
+    ],
+    "learners": [
+        {
+            "library_version": "0.24.2",
+            "algorithm_name": "Neural Network",
+            "algorithm_short_name": "Neural Network",
+            "uid": "d2efc001-2abe-4a8a-8ad1-554dc4284265",
+            "params": {
+                "model_type": "Neural Network",
+                "ml_task": "binary_classification",
+                "n_jobs": -1,
+                "dense_1_size": 32,
+                "dense_2_size": 16,
+                "learning_rate": 0.05,
+                "seed": 5,
+                "explain_level": 2
+            },
+            "name": "learner_fold_0"
+        }
+    ],
+    "params": {
+        "additional": {
+            "max_rows_limit": null,
+            "max_cols_limit": null
+        },
+        "preprocessing": {
+            "columns_preprocessing": {
+                "feature_107": [
+                    "scale_normal"
+                ],
+                "feature_141": [
+                    "scale_normal"
+                ],
+                "feature_492": [
+                    "scale_normal"
+                ],
+                "feature_521": [
+                    "scale_normal"
+                ]
+            },
+            "target_preprocessing": [
+                "na_exclude"
+            ],
+            "ml_task": "binary_classification"
+        },
+        "validation_strategy": {
+            "validation_type": "split",
+            "train_ratio": 0.75,
+            "shuffle": true,
+            "stratify": true,
+            "X_path": "AutoML_1/X.data",
+            "y_path": "AutoML_1/y.data",
+            "results_path": "AutoML_1"
+        },
+        "learner": {
+            "model_type": "Neural Network",
+            "ml_task": "binary_classification",
+            "n_jobs": -1,
+            "dense_1_size": 32,
+            "dense_2_size": 16,
+            "learning_rate": 0.05,
+            "seed": 5,
+            "explain_level": 2
+        },
+        "automl_random_state": 1234,
+        "ml_task": "binary_classification",
+        "explain_level": 2,
+        "name": "5_Default_NeuralNetwork",
+        "status": "initialized",
+        "final_loss": null,
+        "train_time": null,
+        "data_type": "original",
+        "max_time_for_learner": 360.0
+    },
+    "saved": [
+        "5_Default_NeuralNetwork/learner_fold_0.neural_network"
+    ],
+    "predictions_fname": "5_Default_NeuralNetwork/predictions_validation.csv",
+    "metric_name": "logloss",
+    "final_loss": 0.980995772563214,
+    "train_time": 1.7397606372833252,
+    "is_stacked": false,
+    "threshold": 0.6509892155749675
+}

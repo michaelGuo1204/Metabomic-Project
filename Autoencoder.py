@@ -2,7 +2,7 @@ import numpy as np
 import tensorflow as tf
 
 from Model import *
-
+from supervised.automl import AutoML
 if __name__=='__main__':
     tf.compat.v1.disable_v2_behavior()
     physical_devices = tf.config.list_physical_devices('GPU')
@@ -37,6 +37,7 @@ if __name__=='__main__':
     X = data['arr_0']
     Y = data['arr_1']
     # %% Make predictions by encoder
-    autoencoder.encoderPredict(X, Y)
+    #autoencoder.encoderPredict(X, Y)
     # %% Classify the data
-    autoencoder.knnClassify()
+    #autoencoder.knnClassify()
+
